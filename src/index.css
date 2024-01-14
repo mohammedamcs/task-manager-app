@@ -1,0 +1,686 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+/* Start Global Variables  */
+:root {
+  --background-color: #1c1b19;
+  --text-color: #fff;
+  --text-alt-color: #7c7c7a;
+  --green-color: #20c34e;
+  --blue-color: #2a53ed;
+  --orange-color: #d88130;
+  --purple-color: #6d12e0;
+  --widget-color: #0f0f0f;
+}
+/* End Global Variables  */
+
+/* Start Global Rules  */
+*,
+*::after,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  user-select: none;
+}
+
+.app {
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Global Rules  */
+
+/* Start Header Styling  */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+header img {
+  max-width: 100%;
+}
+
+header .logo {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  background-color: var(--purple-color);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: calc(100% - 45px);
+  align-items: center;
+  gap: 10px;
+}
+
+header nav > div {
+  display: flex;
+  gap: 10px;
+}
+
+header nav a {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: var(--background-color);
+  text-transform: capitalize;
+  transition: all 0.1s;
+}
+header nav a:hover {
+  background-color: #32312f;
+}
+
+/* End Header Styling  */
+
+/* Start Main Styling  */
+main {
+  width: 90%;
+  height: calc(100vh - 70px);
+  margin: 0 auto;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  main {
+    width: 95%;
+    height: fit-content;
+  }
+}
+@media (min-width: 520px) {
+  main {
+    width: 95%;
+    height: calc(100vh - 80px);
+  }
+}
+
+/* Start Task side Styling  */
+.tasks-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2px;
+  width: fit-content;
+  height: 100%;
+}
+
+@media (max-width: 991px) {
+  .tasks-side {
+    width: 100%;
+    height: fit-content;
+  }
+}
+
+.tasks-side .greeting {
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.tasks-side .greeting .date {
+  color: var(--text-alt-color);
+}
+
+.tasks-side .greeting .msg {
+  font-size: 45px;
+}
+
+.tasks-side .greeting .username {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--blue-color);
+  text-transform: capitalize;
+}
+
+.tasks-side .greeting .tasks-today {
+  color: var(--text-alt-color);
+  font-size: 20px;
+}
+.tasks-side .greeting .tasks-today span {
+  font-weight: 700;
+}
+
+.tasks-side .progress-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.tasks-side .progress-info-wrapper > div {
+  background-color: var(--widget-color);
+  padding: 10px;
+  border-radius: 10px;
+}
+.tasks-side .progress-info-wrapper div:first-child {
+  margin-bottom: 10px;
+}
+
+.tasks-side h3 {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.tasks-side .tasks-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tasks-side .tasks-progress .progress {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(var(--green-color) var(--deg), #fff 0deg);
+  position: relative;
+  margin-top: 10px;
+}
+.tasks-side .tasks-progress .progress::after {
+  content: "";
+  background-color: var(--background-color);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tasks-side .tasks-progress .progress .value {
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+}
+.tasks-side .tasks-progress .progress .value span:first-child {
+  font-weight: 500;
+  font-size: 22px;
+}
+.tasks-side .tasks-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tasks-side .tasks-infos > div:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.tasks-side .tasks-infos .info {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.info span:first-child {
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.info span:nth-of-type(2) {
+  text-transform: capitalize;
+}
+
+.info span.done-tasks {
+  background-color: var(--green-color);
+}
+
+.info span.unfinished-tasks {
+  background-color: var(--purple-color);
+}
+.info span.ongoing-tasks {
+  background-color: var(--orange-color);
+}
+/* End Task side Styling  */
+
+/* Start Tasks Wrapper Styling  */
+.tasks-wrapper {
+  height: 100%;
+  width: 50%;
+  background-color: var(--widget-color);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+@media (max-width: 991px) {
+  .tasks-wrapper {
+    flex-basis: 100%;
+    height: calc(100vh - 100px);
+  }
+}
+/* Start Tasks Header Styling  */
+.tasks-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+#createTaskBtn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+  border: 2px solid var(--purple-color);
+  background-color: var(--widget-color);
+  transition: all 0.3s;
+}
+
+#createTaskBtn:hover {
+  background-color: var(--purple-color);
+}
+
+.tasks-header a {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-alt-color);
+  padding: 5px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.tasks-header a:hover,
+.tasks-header a.active {
+  background-color: #32312f;
+}
+
+a span:first-of-type {
+  width: 50px;
+  height: 8px;
+  border-radius: 5px;
+  background-color: var(--text-color);
+}
+
+@media (max-width: 767px) {
+  a span:first-of-type {
+    width: 25px;
+  }
+}
+
+a span.done-tasks {
+  background-color: var(--green-color);
+}
+
+a span.unfinished-tasks {
+  background-color: var(--purple-color);
+}
+a span.ongoing-tasks {
+  background-color: var(--orange-color);
+}
+/* End Tasks Header Styling  */
+
+/* Start Tasks Container Styling  */
+
+.tasks {
+  width: 100%;
+  height: calc(100% - 50px);
+  margin-top: 15px;
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.tasks img {
+  width: 100px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+.tasks > div {
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.tasks .task {
+  background-color: var(--purple-color);
+  user-select: none;
+  height: fit-content;
+}
+
+.tasks .task.ongoing {
+  background-color: var(--orange-color);
+}
+.tasks .task.done {
+  background-color: var(--green-color);
+}
+.tasks .task.unfinished {
+  background-color: var(--purple-color);
+}
+
+.tasks .task button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+.tasks .task button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0, 0.2);
+}
+.tasks .task button:hover {
+  background-color: var(--background-color);
+}
+.tasks .task button img {
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.tasks .task .text {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.task .info-actions-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.task .info-actions-wrapper .infos span {
+  background-color: var(--text-color);
+  color: #000;
+  padding: 3px 5px;
+  border-radius: 14px;
+  font-weight: 500;
+}
+
+.task .info-actions-wrapper .actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+/* End Tasks Container Styling  */
+
+/* End Tasks Wrapper Styling  */
+
+/* Start Form Styling  */
+.form-wrapper {
+  background-color: var(--widget-color);
+  width: 500px;
+  max-width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+  padding: 20px;
+  text-transform: capitalize;
+  position: relative;
+}
+#closeBtn {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 5px;
+  border: none;
+  color: #fff;
+  background-color: var(--text-alt-color);
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#closeBtn img {
+  width: 70%;
+  max-width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.form-wrapper h3 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.form-wrapper .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-wrapper .form .input {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+.form-wrapper .form .input.w-50 {
+  width: 50%;
+}
+.form-wrapper .form .input label {
+  margin-bottom: 10px;
+}
+
+.form-wrapper .form .input input,
+.form-wrapper .form .input select {
+  background-color: var(--background-color);
+  border: none;
+  outline: none;
+  caret-color: var(--green-color);
+  color: var(--text-color);
+  font-size: 18px;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  border-radius: 6px;
+}
+
+.form-wrapper .form .input input:focus {
+  border-color: var(--purple-color);
+  border-radius: 6px 6px 0 0;
+}
+.form-wrapper .form .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-wrapper .form .buttons p {
+  color: var(--text-alt-color);
+  text-transform: none;
+}
+
+.form-wrapper .form .buttons a {
+  text-decoration: underline;
+  color: var(--blue-color);
+}
+.form-wrapper .form .btn {
+  padding: 4px 12px;
+  border: 2px solid var(--purple-color);
+  width: fit-content;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: var(--purple-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-wrapper .form .btn.warning {
+  background-color: var(--orange-color);
+  border-color: var(--orange-color);
+}
+.form-wrapper .form .btn:hover {
+  background-color: var(--widget-color);
+}
+
+/* End Form Pages Styling  */
+
+/* Start Create Task Modal Style  */
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* End Create Task Modal Style  */
+
+/* Start Error Page Styling  */
+.error {
+  padding: 10px;
+  text-align: center;
+}
+
+.error h3 {
+  font-size: 100px;
+  color: var(--text-alt-color);
+}
+
+.error h4 {
+  font-size: 30px;
+}
+
+.error p {
+  margin-top: 5px;
+  font-size: 20px;
+  color: var(--text-alt-color);
+}
+
+.error .buttons {
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.error .buttons button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500px;
+  background-color: var(--purple-color);
+  color: var(--text-color);
+  cursor: pointer;
+  border: 2px solid var(--purple-color);
+  transition: all 0.3s;
+}
+
+.error .buttons button:hover {
+  background-color: transparent;
+}
+
+/* End Error Page Styling  */
+
+/* Start Loading Component Styling  */
+.loading {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.loading .dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--purple-color);
+  animation: flow-up 2s linear  infinite;
+}
+
+.loading .dot.up{
+  animation: flow-up 2s linear 1s infinite;
+
+}
+
+@keyframes flow-up {
+  50%{
+    transform: translateY(-20px);
+  }
+}
+
+
+/* End Loading Component Styling  */
+
+/* End Main Styling  */
