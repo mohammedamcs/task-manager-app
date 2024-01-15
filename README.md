@@ -4,7 +4,8 @@ efficient state management, and Firebase for the realtime
 database and authentication backend, which allows users
 to conveniently create, view, edit, delete, organize, filter,
 and track tasks for improved productivity and workflow
-management.
+management. <br/> 
+Check it out at <a href="https://task-manager-7479f.web.app"><kbd>task-manager-app</kbd></a>.
 
 ## Features
 - Task Management:
